@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Run Executable</title>
+  </head>
+  <body>
+    <h1>Run Executable File</h1>
+    <button id="run-button">Run premake5.exe</button>
+    <script>
+      const button = document.getElementById("run-button");
+      button.addEventListener("click", () => {
+        const exec = require("child_process").exec;
+        exec("start premake5.exe", (error, stdout, stderr) => {
+          if (error) {
+            console.error(`Error: ${error}`);
+          }
+          console.log(`stdout: ${stdout}`);
+          console.log(`stderr: ${stderr}`);
+        });
+      });
+    </script>
+  </body>
+</html>
